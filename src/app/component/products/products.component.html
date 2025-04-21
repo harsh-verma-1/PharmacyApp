@@ -1,0 +1,76 @@
+<!-- <div class="product-header">
+  <p class="products">Products</p>
+
+<input type="text" [(ngModel)]="searchBy" placeholder="Search Product" class="search-btn">
+
+</div>
+
+<div class="full-table">
+<table *ngIf="(products|searchProduct:searchBy).length>0; else elseBlock" class="table">
+    <thead class="thead">
+      <tr>
+        <td class="td">Id</td>
+        <td class="td">Name</td>
+        <td class="td">Price</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of products | searchProduct:searchBy;let i=index" [ngClass]="{'higher': item.price>10000}">
+        <td class="td">{{item?.id}}</td>
+        <td class="td">{{item?.name}}</td>
+        <td class="td">{{item?.price | currency:'INR'}}</td>
+  
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <ng-template #elseBlock><h1>No Data is present</h1></ng-template>
+
+</div>
+
+    &lt;!&ndash;  [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}"&ndash;&gt;for different color on the basis of even and odd -->
+
+
+
+
+
+
+
+    <div class="product-header">
+      <p class="products">Products</p>
+      <input type="text" [(ngModel)]="searchBy" placeholder="Search Product" class="search-btn">
+      <input type="button" (click)="goToCart()" value="Go To Cart" class="btn-cart">
+    </div>
+
+
+    <ng-container *ngIf="(products | searchProduct:searchBy).length > 0; else elseBlock"></ng-container>
+
+
+    <div class="card-container">
+     
+        <div class="card" *ngFor="let item of products | searchProduct:searchBy">
+          <a routerLink="/getProduct/{{item.id}}" >
+          <img src="{{item.imgUrl}}" alt="{{item.name}}" class="card-img">
+          <div class="card-body">
+            <h4><b>{{ item.name }}</b></h4>
+            <p><b>ID:</b> {{ item.id }}</p>
+            <p><b>Price:</b> {{ item.price | currency: 'INR' }}</p>
+          </div>
+          </a>
+          <div class="div-btn">
+            <a routerLink="/addToCart/{{item.id}}" >
+            <input type="button" value="Add To Cart" class="btn" (click)="addToCart(item.id)" >
+            </a>
+          </div>
+        </div>
+
+
+
+
+      <ng-template #elseBlock>
+        <h1 class="no-data">Sorry, Drug not found!</h1>
+      </ng-template>
+    </div>
+    

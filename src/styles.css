@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+/* body{
+    background-image: url(https://img.freepik.com/free-vector/online-pharmacy-concept-hand-holding-smartphone_107791-7718.jpg?semt=ais_hybrid&w=740);
+} */
+
+
+
+.my-background{
+    background-image:url('assets/images/pharmacy-background-image.png');
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    width: 100%;
+}

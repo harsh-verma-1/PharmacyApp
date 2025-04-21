@@ -1,0 +1,93 @@
+<p class="home">Home</p>
+
+
+<!-- perfectly working -->
+
+<!-- @for(item of product; track item.id){
+    <ul>
+        <li>{{item.title}}</li>
+        <li>{{item.category}}</li>
+        <li>{{item.price}}</li>
+        <li>{{item.rating}}</li>
+        <li>{{item.stock}}</li>
+        <li><img src={{item.thumbnail}} alt=""></li>
+    </ul>
+  } -->
+
+
+
+
+<form #form="ngForm" (ngSubmit)="addDrug(form.value)">
+
+    <input type="text" name="name" placeholder="name" ngModel>
+    <br><br>
+    <input type="text" name="price" placeholder="price" ngModel>
+    <br><br>
+    <input type="text" name="description" placeholder="description" ngModel>
+    <br><br>
+    <input type="text" name="stock" placeholder="stock" ngModel>
+    <br><br>
+    <button>Add Drug</button>
+
+</form>
+
+
+<!-- below for is also working -->
+
+<!-- <div class="container">
+    <h2>Add New Product</h2>
+    <form [formGroup]="drugForm"  (ngSubmit)="addDrug()">
+      <div>
+        <label for="name">Drug Name:</label>
+        <input type="text" id="name" formControlName="drugName" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" formControlName="description" required>
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" formControlName="price" required>
+      </div>
+      <div>
+        <label for="price">Stock:</label>
+        <input type="number" id="stock" formControlName="stock" required>
+      </div>
+      <button type="submit">Add Product</button>
+    </form>
+  </div> -->
+  
+
+
+
+
+
+
+<div *ngFor="let item of product">
+    <ul>
+        <li>Drug-Id: {{item.drugId}}</li>
+        <li>Name: {{item.name}}</li>
+        <li>Price: {{item.price}}</li>
+        <li>Description: {{item.description}}</li>
+        <li>Stock: {{item.stock}}</li>
+        <li><input type="button" value="Delete" (click)="deleteDrug(item.drugId!)"></li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- have some issues -->
+<!-- @for(item of product; track item.index){
+    <ul>
+        <li>{{item.price}}</li>
+        <li>{{item.stock}}</li>
+        <li>{{item.description}}</li>
+        <li>{{item.name}}</li>
+    </ul>
+} -->

@@ -1,0 +1,50 @@
+<div class="form-container">
+  <h2 class="register-lable">Sign Up</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()" >
+    
+    <div class="form">
+
+      <!-- full name input field-->
+      <input type="text" name="Name" formControlName="Name" placeholder="Full Name" class="form-control">
+      
+      <div class="text-danger" 
+          *ngIf="signUpForm.get('Name')?.hasError('required') && signUpForm.get('Name')?.touched">
+        Full name is required
+      </div>
+
+
+      <!-- email input field -->
+      <input type="email" name="Email" formControlName="Email" placeholder="Email" class="form-control">
+      
+      <div class="text-danger" 
+          *ngIf="signUpForm.get('Email')?.hasError('required') && signUpForm.get('Email')?.touched">
+        Email is required
+      </div>
+
+
+
+
+      <!-- password input field -->
+      
+      <input type="password" name="pass" formControlName="pass" placeholder="Password" class="form-control">
+      
+      <div class="text-danger" 
+          *ngIf="signUpForm.get('pass')?.hasError('required') && signUpForm.get('pass')?.touched">
+        Password is required
+      </div>
+    
+      <div class="text-danger" 
+          *ngIf="signUpForm.get('pass')?.hasError('minlength') && signUpForm.get('pass')?.touched">
+        Min length should be 6
+      </div>
+    </div>
+    <div>
+        <input type="button" value="Register" class="submit-btn">
+    </div>
+    </form>
+
+
+   
+    <p>Already have account? <a routerLink="/login">Login</a></p>
+
+  </div>

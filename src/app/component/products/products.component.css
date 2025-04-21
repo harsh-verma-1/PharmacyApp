@@ -1,0 +1,139 @@
+
+.product-header{
+  display: flex;
+}
+
+.products{
+  color: rgb(8, 73, 130);
+  text-align: center;
+  border: 2px solid brown;
+  border-radius: 10px;
+  /* margin:auto; */
+  width: 60%;
+  font-size: 40px;
+  text-shadow: 2px 2px 5px red;
+  box-shadow: 5px 5px 5px 0 #888888;
+  background-color: aliceblue;
+}
+
+
+
+.search-btn{
+  padding: 15px;
+  border: 2px solid brown;
+  border-radius: 10px;
+  margin-left: 200px;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight:bold;
+  width: 40%;
+  height: 18px;
+  /* text-shadow: 2px 2px 5px red; */
+  box-shadow: 5px 5px 5px 0 #888888;
+  background-color: aliceblue;
+
+}
+
+.btn-cart{
+  padding: 15px;
+  border: 2px solid brown;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight:bold;
+  width: 150px;
+  height: 50px;
+  /* text-shadow: 2px 2px 5px red; */
+  box-shadow: 5px 5px 5px 0 #888888;
+  background-color: aliceblue;
+}
+
+.btn{
+  padding: 5px;
+  margin: 10px 70px;
+  width: 40%;
+  background-color: #00bfa5;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* .table, .td{
+      border:1px solid black;
+      width:30%;
+      border-collapse: collapse;
+      }
+      
+.full-table{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+}  
+
+
+.thead{
+        color:red;
+        background-color:aqua;
+      } */
+      
+      
+.even-row{
+        background-color:grey;
+      }
+      
+.odd-row{
+      background-color:yellow;
+      }
+      
+      
+.higher{
+      background-color:red;
+      }
+
+
+      .card-container{
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+      }
+      
+      .card {
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 250px;
+        border-radius: 8px;
+        overflow: hidden;
+        /* text-align: center; */
+        background-color: #fff;
+        flex: 1 1 calc(25% - 30px); /* 4 cards in a row */
+        max-width: 250px; /* optional limit */
+      }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      }
+      
+      .card-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      
+      .card-body {
+        padding: 15px;
+        text-align: center;
+      }
+
+
+
+.no-data{
+  text-align: center;
+  color: black;
+  
+}

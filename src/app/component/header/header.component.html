@@ -1,0 +1,20 @@
+<div class="navbar">
+    <h1 class="website-title">{{title}}</h1>
+    
+    <ul class="list">
+        <li><a routerLink="/home" routerLinkActive="active">home</a></li>
+        <li><a routerLink="/products" routerLinkActive="active">products</a></li>
+        <li><a routerLink="/contact-us" routerLinkActive="active">contact-us</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">login</a></li>
+        <li><a routerLink="/signup" routerLinkActive="active">sign-up</a></li>
+
+        <!-- the below two ways to send data form one component to another component -->
+        <!-- <li><a [routerLink]="['/profile',{name:'Harsh'}]" routerLinkActive="active">profile</a></li> -->
+        <li><a routerLinkActive="active" (click)="goToProfilePage()">profile</a></li>
+    </ul>
+    
+</div>
+
+<hr>
+
+<router-outlet></router-outlet>

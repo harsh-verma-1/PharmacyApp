@@ -1,0 +1,18 @@
+
+<div class="back-to-products">
+<h1 class="product-tag">{{product.name}}</h1>
+<input type="button" (click)="goBackToProductPage()" value="Products-Page" class="product-btn">
+</div>
+
+
+
+
+<div *ngIf="product; else elseBlock" class="details">
+    <img [src]="product.imgUrl" alt="{{ product.name }}" width="300" class="image">
+    <p class="info"><strong>ID:</strong> {{ product.id }}</p>
+    <p class="info"><strong>Price:</strong> ₹{{ product.price }}</p>
+</div>
+
+<ng-template #elseBlock>
+    <p>Loading Product..........</p>
+</ng-template>

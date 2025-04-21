@@ -1,0 +1,74 @@
+<div class="form-container">
+    <h2 class="login-lable">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="form">
+
+
+    <!-- <div >
+        <input type="text" name="userName" formControlGroup="userName" placeholder="Username">
+        <div class="error" class="text-danger"
+            *ngIf="loginForm.controls['userName'].hasError('required') && loginForm.controls['userName'].touched">User
+            name is required</div>
+        <div class="error" class="text-danger"
+            *ngIf="loginForm.controls['userName'].hasError('minlength') && loginForm.controls['userName'].touched">Min
+            length should be 5</div>
+    </div> -->
+
+    <!-- input field for username-->
+    <div>
+        <input type="text" name="userName" formControlName="userName" placeholder="Username" class="form-control">
+        
+
+        <!-- can use ngif and if both check the below two validations -->
+        <!-- loginForm.get('userName')?.hasError('required') &&  -->
+        @if(loginForm.get('userName')?.hasError('required') && loginForm.get('userName')?.touched){
+          <div class="text-danger">username required</div>
+        }
+        <div class="text-danger" 
+            *ngIf="loginForm.get('userName')?.hasError('minlength') && loginForm.get('userName')?.touched">
+          min length should be 5
+        </div>
+    </div>
+
+
+    <!-- input field for email -->
+    <div>
+      <input type="email" name="email" formControlName="email" placeholder="Email" class="form-control">
+      
+
+      <!-- can use ngif and if both check the below two validations -->
+      @if(loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched){
+        <div class="text-danger">email required</div>
+      }
+      <div class="text-danger" 
+          *ngIf="loginForm.get('email')?.hasError('pattern') && loginForm.get('email')?.touched">
+        invalid email
+      </div>
+  </div>
+
+
+    <!-- password filed -->
+    <div>
+        <input type="password" name="pass" formControlName="pass" placeholder="Password" class="form-control">
+      
+        <div class="text-danger"
+             *ngIf="loginForm.get('pass')?.hasError('required') && loginForm.get('pass')?.touched">
+          password required
+        </div>
+      </div>
+      
+    <br>
+
+    <!-- button field -->
+    <div>
+        <input type="button" value="login" [disabled]="!loginForm.valid" (click)="login()" [ngClass]="{'submit-btn':true,'btn-active':loginForm.valid,'btn-deactive':!loginForm.valid}">
+        <input type="button" value="Forgot Password" [ngClass]="{'submit-btn':true,'btn-active':true}" (click)="forgotPassword()">
+        
+        
+        <!-- want to set default value -->
+        <!-- <input type="button" value="Set Value" class="submit-btn" (click)="setValue()"> -->
+    </div>
+    
+    </form>
+
+    <p>Don't have an account? <a routerLink="/signup">Register</a></p>
+</div>
