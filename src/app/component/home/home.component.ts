@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
 
 
 
-// absolutely working fine it is reactive forms and above one is template driven form
+// absolutely working fine it is reactive forms and above one is for template driven form
 
 // import { Component, OnInit } from '@angular/core';
 // import { ApiService } from '../../services/api.service';
