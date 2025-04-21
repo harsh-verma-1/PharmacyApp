@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit {
 
 
 // absolutely working fine it is reactive forms and above one is for template driven form
+// and this form is used whenm you have mulitple different fields
 
 // import { Component, OnInit } from '@angular/core';
 // import { ApiService } from '../../services/api.service';
