@@ -13,8 +13,7 @@ export class HeaderComponent {
 
   constructor(private router:Router){}
 
-
-  goToProfilePage(){
-    this.router.navigate(['/profile'],{queryParams:{name:'Harsh Verma'}})
-  }
+  // goToProfilePage(){
+  //   this.router.navigate(['/profile'],{queryParams:{name:'Harsh Verma'}})
+  // }
 }

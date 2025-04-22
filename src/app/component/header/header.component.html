@@ -9,7 +9,8 @@
         <li><a routerLink="/signup" routerLinkActive="active">sign-up</a></li>
 
         <!-- the below two ways to send data form one component to another component -->
-        <li><a [routerLink]="['/profile',{name:'Harsh'}]" routerLinkActive="active">profile</a></li>
+        <!-- <li><a [routerLink]="['/profile',{name:'Harsh'}]" routerLinkActive="active">profile</a></li> -->
+        <li><a routerLink="/profile" routerLinkActive="active">profile</a></li>
         <!-- <li><a routerLinkActive="active" (click)="goToProfilePage()">profile</a></li> -->
     </ul>
     

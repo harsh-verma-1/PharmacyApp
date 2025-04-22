@@ -20,7 +20,7 @@ export class ProfileComponent {
     // different ways to transfer data from one page to another page
 
     // this method is used when the data is passed in the link
-    this.name=this.activatedRouter.snapshot.paramMap.get('name');
+    // this.name=this.activatedRouter.snapshot.paramMap.get('name');
     
 
 
@@ -29,15 +29,14 @@ export class ProfileComponent {
     // passed data as parameter in the link
 
 
-    // this.activatedRouter.queryParams.subscribe(params=>{
-    //   this.name=params['name'];
-    //   if(this.name){
-    //     const [first,last]=this.name.split(" ");
-    //     this.firstName=first;
-    //     this.lastName=last;
-    //   }
-    
-    // })
+    this.activatedRouter.queryParams.subscribe(params=>{
+      this.name=params['name'];
+      // if(this.name){
+      //   const [first,last]=this.name.split(" ");
+      //   this.firstName=first;
+      //   this.lastName=last;
+      // }
+    })
   }
 
 }
