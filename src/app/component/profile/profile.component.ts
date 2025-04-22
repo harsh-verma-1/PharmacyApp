@@ -20,20 +20,24 @@ export class ProfileComponent {
     // different ways to transfer data from one page to another page
 
     // this method is used when the data is passed in the link
-    // this.firstName=this.activatedRouter.snapshot.paramMap.get('name');
-    // console.log(this.firstName);
+    this.name=this.activatedRouter.snapshot.paramMap.get('name');
     
 
+
+    // this code is absolutely working fine there is no error in this
+    // this data is coming from header component
     // passed data as parameter in the link
-    this.activatedRouter.queryParams.subscribe(params=>{
-      this.name=params['name'];
-      if(this.name){
-        const [first,last]=this.name.split(" ");
-        this.firstName=first;
-        this.lastName=last;
-      }
+
+
+    // this.activatedRouter.queryParams.subscribe(params=>{
+    //   this.name=params['name'];
+    //   if(this.name){
+    //     const [first,last]=this.name.split(" ");
+    //     this.firstName=first;
+    //     this.lastName=last;
+    //   }
     
-    })
+    // })
   }
 
 }
