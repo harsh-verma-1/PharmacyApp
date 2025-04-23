@@ -31,6 +31,7 @@ const user: login = {
   
     this.loginService.login(user).subscribe({
       next:(data)=>{
+        this.loginForm.reset();
         console.log("user logged in");
       },
       error:(error)=>{

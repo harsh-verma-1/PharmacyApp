@@ -34,6 +34,7 @@ export class SignupComponent {
       next:(data:signUp)=>{
         if(data){
           console.log("user registered");
+          alert("User Registered Successfully")
         }
       },
       error:(error)=>{
