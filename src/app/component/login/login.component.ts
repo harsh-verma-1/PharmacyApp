@@ -15,7 +15,7 @@ export class LoginComponent {
   constructor(private router:Router, private loginService:LoginService){}
 
   loginForm=new FormGroup({
-    userName:new FormControl('',[Validators.required,Validators.minLength(5)]),
+    // userName:new FormControl('',[Validators.required,Validators.minLength(5)]),
     pass:new FormControl('',Validators.required),
     email:new FormControl('',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')])
   })
@@ -24,7 +24,7 @@ export class LoginComponent {
   login(){
     
 const user: login = {
-       userName: this.loginForm.get('userName')?.value || '',
+      //  userName: this.loginForm.get('userName')?.value || '',
        pass: this.loginForm.get('pass')?.value || '',
        email: this.loginForm.get('email')?.value || ''
     };
@@ -38,7 +38,7 @@ const user: login = {
         
       }
   });
-    this.router.navigate(['/profile'],{queryParams:{name:'Harsh'}})
+    // this.router.navigate(['/profile'],{queryParams:{name:'Harsh'}})
   }
 
 

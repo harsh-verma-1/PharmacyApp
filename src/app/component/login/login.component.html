@@ -14,20 +14,20 @@
     </div> -->
 
     <!-- input field for username-->
-    <div>
-        <input type="text" name="userName" formControlName="userName" placeholder="Username" class="form-control">
+    <!-- <div> -->
+        <!-- <input type="text" name="userName" formControlName="userName" placeholder="Username" class="form-control"> -->
         
 
         <!-- can use ngif and if both check the below two validations -->
         <!-- loginForm.get('userName')?.hasError('required') &&  -->
-        @if(loginForm.get('userName')?.hasError('required') && loginForm.get('userName')?.touched){
+        <!-- @if(loginForm.get('userName')?.hasError('required') && loginForm.get('userName')?.touched){
           <div class="text-danger">username required</div>
         }
         <div class="text-danger" 
             *ngIf="loginForm.get('userName')?.hasError('minlength') && loginForm.get('userName')?.touched">
           min length should be 5
         </div>
-    </div>
+    </div> -->
 
 
     <!-- input field for email -->
