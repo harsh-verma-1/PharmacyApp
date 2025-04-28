@@ -32,6 +32,9 @@
     margin-bottom:20px ;
   }
 
+  .alertMessage{
+    color: red;
+  }
 
 
   .form {

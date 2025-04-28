@@ -13,7 +13,7 @@ import { SharedService } from '../../services/shared.service';
 })
 export class LoginComponent {
 
-  userName:String="";
+  alertMessage:String="";
 
   constructor(private router:Router, private loginService:LoginService, private sharedService:SharedService){}
 
@@ -47,6 +47,7 @@ const user: login = {
         console.log("user logged in");
       },
       error:(error)=>{
+        this.alertMessage="UserName or Password Incorrect";
         console.log("User not logged in");
         
       }
