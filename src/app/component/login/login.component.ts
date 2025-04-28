@@ -34,7 +34,7 @@ const user: login = {
   
     this.loginService.login(user).subscribe({
       next:(data)=>{
-        
+
         //'user' is used as a name to define a place in the local storage
         localStorage.setItem('user',JSON.stringify(data));
         
