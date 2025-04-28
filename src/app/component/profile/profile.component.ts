@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from '../../services/shared.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +12,11 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent {
 
   name:string|null="";
-  firstName:string|null="";
-  lastName:string|null="";
+  // firstName:string|null="";
+  // lastName:string|null="";
 
-  constructor(private activatedRouter:ActivatedRoute){}
+  constructor(private activatedRouter:ActivatedRoute, private sharedService:SharedService){}
+
 
   ngOnInit(){
 
@@ -29,14 +32,17 @@ export class ProfileComponent {
     // passed data as parameter in the link
 
 
-    this.activatedRouter.queryParams.subscribe(params=>{
-      this.name=params['name'];
-      // if(this.name){
-      //   const [first,last]=this.name.split(" ");
-      //   this.firstName=first;
-      //   this.lastName=last;
-      // }
-    })
+    // this.activatedRouter.queryParams.subscribe(params=>{
+    //   this.name=params['name'];
+    //   // if(this.name){
+    //   //   const [first,last]=this.name.split(" ");
+    //   //   this.firstName=first;
+    //   //   this.lastName=last;
+    //   // }
+    // })
+
+    //this is used to fetch data from shared service
+    this.name=this.sharedService.getUserName();
   }
 
 }

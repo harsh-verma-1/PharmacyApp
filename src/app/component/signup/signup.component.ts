@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from '../../services/signup.service';
 import { signUp } from '../../utility/signUp';
+import { Router } from '@angular/router';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +13,7 @@ import { signUp } from '../../utility/signUp';
 })
 export class SignupComponent {
 
-  constructor(private singupService:SignupService){}
+  constructor(private singupService:SignupService,private router:Router){}
 
 
   signUpForm = new FormGroup({
@@ -33,7 +35,6 @@ export class SignupComponent {
     this.singupService.postUser(userInfo).subscribe({
       next:(data:signUp)=>{
         if(data){
-          console.log("user registered");
           alert("User Registered Successfully")
         }
       },
@@ -41,10 +42,7 @@ export class SignupComponent {
         if(error.status===500 || error.error.message==="User Already Present"){
           
           alert("User Already Present. Please use another email")
-          console.log("Error occured",error.error.message);
         }else{
-          console.log("Error Occured",error);
-          
           alert("An error occurred during registration. Please try again later.");
         }
       }  

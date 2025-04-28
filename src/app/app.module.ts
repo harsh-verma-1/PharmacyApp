@@ -18,6 +18,7 @@ import { SeeProductDetailsComponent } from './component/see-product-details/see-
 import { ProfileComponent } from './component/profile/profile.component';
 import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { AddProductComponent } from './component/add-product/add-product.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     SeeProductDetailsComponent,
     ProfileComponent,
     ForgetpasswordComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

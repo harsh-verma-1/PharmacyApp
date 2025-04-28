@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService} from '../../services/login-service.service';
 import { login } from '../../utility/login';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ import { login } from '../../utility/login';
 })
 export class LoginComponent {
 
-  constructor(private router:Router, private loginService:LoginService){}
+  userName:String="";
+
+  constructor(private router:Router, private loginService:LoginService, private sharedService:SharedService){}
 
   loginForm=new FormGroup({
     // userName:new FormControl('',[Validators.required,Validators.minLength(5)]),
@@ -31,6 +34,15 @@ const user: login = {
   
     this.loginService.login(user).subscribe({
       next:(data)=>{
+        
+        //'user' is used as a name to define a place in the local storage
+        localStorage.setItem('user',JSON.stringify(data));
+        
+        // trying to get data from backend and set it to the shared service to profile
+        // this.userName=data.name;
+        // this.sharedService.setUserName()
+        this.router.navigate(['/home']);
+
         this.loginForm.reset();
         console.log("user logged in");
       },

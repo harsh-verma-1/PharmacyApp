@@ -1,17 +1,34 @@
-<div class="navbar">
+<div class="navbar" [ngSwitch]="menuType">
     <h1 class="website-title">{{title}}</h1>
     
-    <ul class="list">
+    <ul class="list" *ngSwitchCase="'default'">
         <li><a routerLink="/home" routerLinkActive="active">home</a></li>
-        <li><a routerLink="/products" routerLinkActive="active">products</a></li>
-        <li><a routerLink="/contact-us" routerLinkActive="active">contact-us</a></li>
+        <!-- <li><a routerLink="/products" routerLinkActive="active">products</a></li> -->
+        <li><a routerLink="/contact-us" routerLinkActive="active">contact</a></li>
         <li><a routerLink="/login" routerLinkActive="active">login</a></li>
         <li><a routerLink="/signup" routerLinkActive="active">sign-up</a></li>
 
         <!-- the below two ways to send data form one component to another component -->
         <!-- <li><a [routerLink]="['/profile',{name:'Harsh'}]" routerLinkActive="active">profile</a></li> -->
-        <li><a routerLink="/profile" routerLinkActive="active">profile</a></li>
+        <!-- <li><a routerLink="/profile" routerLinkActive="active">profile</a></li> -->
         <!-- <li><a routerLinkActive="active" (click)="goToProfilePage()">profile</a></li> -->
+    </ul>
+
+
+    <ul class="list" *ngSwitchCase="'User'">
+        <li><a routerLink="/home" routerLinkActive="active">home</a></li>
+        <li><a routerLink="/products" routerLinkActive="active">products</a></li>
+        <li><a routerLink="/contact-us" routerLinkActive="active">contact</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">{{userName}}</a></li>
+        <li><a routerLinkActive="active" (click)="logout()">Logout</a></li>
+    </ul>
+
+    <ul class="list" *ngSwitchCase="'Admin'">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/addDrug" routerLinkActive="active">Add</a></li>
+        <li><a routerLink="/contact-us" routerLinkActive="active">contact</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">{{userName}}</a></li>
+        <li><a routerLinkActive="active" (click)="logout()">logout</a></li>
     </ul>
     
 </div>

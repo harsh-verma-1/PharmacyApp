@@ -10,6 +10,7 @@ import { SeeProductDetailsComponent } from './component/see-product-details/see-
 import { GoToCartComponent } from './component/go-to-cart/go-to-cart.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
+import { AddProductComponent } from './component/add-product/add-product.component';
 
 const routes: Routes = [
   {path:"products", component:ProductsComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:"addToCart/:id",component:GoToCartComponent},
   {path:"profile",component:ProfileComponent},
   {path:"forgetpassword",component:ForgetpasswordComponent},
+  {path:"addDrug",component:AddProductComponent},
   {path:'**',component:PageNotFoundComponent}
 
 
