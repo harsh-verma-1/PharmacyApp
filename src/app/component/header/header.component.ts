@@ -19,9 +19,9 @@ export class HeaderComponent {
   ngOnInit(){
     this.router.events.subscribe((val:any)=>{
       if(val?.url){
-        if(typeof localStorage !== 'undefined')
-        if(localStorage?.getItem('user')){
-          let userStore = localStorage.getItem('user');
+        if(typeof sessionStorage !== 'undefined')
+        if(sessionStorage?.getItem('user')){
+          let userStore = sessionStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
           this.userName = userData.name;
           this.role=userData.role;
@@ -45,10 +45,10 @@ export class HeaderComponent {
   }
 
   logout(){
-    localStorage.removeItem('cart');
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('cart');
+    sessionStorage.removeItem('user');
     this.menuType='default';
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home',{menuType:'default'}]);
   }
 
 

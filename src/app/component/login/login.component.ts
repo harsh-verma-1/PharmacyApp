@@ -36,7 +36,7 @@ const user: login = {
       next:(data)=>{
 
         //'user' is used as a name to define a place in the local storage
-        localStorage.setItem('user',JSON.stringify(data));
+        sessionStorage.setItem('user',JSON.stringify(data));
         
         // trying to get data from backend and set it to the shared service to profile
         // this.userName=data.name;

@@ -45,9 +45,9 @@ export class HomeComponent {
 
 
     user(){
-      if(typeof localStorage !=='undefined')
-      if(localStorage?.getItem('user')){
-        let userStore = localStorage.getItem('user');
+      if(typeof sessionStorage !=='undefined')
+      if(sessionStorage?.getItem('user')){
+        let userStore = sessionStorage.getItem('user');
         let userData = userStore && JSON.parse(userStore);
         if(userData.role==='Admin'){
           this.userType='Admin';
