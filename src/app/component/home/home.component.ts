@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Drug } from '../../utility/Drug';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +15,11 @@ export class HomeComponent {
   userType:string='default';
 
 
-  constructor(private api:ApiService,private router:Router){}
+  constructor(private api:ApiService,private router:Router,private activatedRouter:ActivatedRoute){}
   
-  ngOnInit(){
-    this.getDrug();
+  ngOnInit(){ 
     this.user();
+    this.getDrug();
   }
 
   getDrug(){
@@ -37,17 +37,19 @@ export class HomeComponent {
      
     // delete the drug from database
     deleteDrug(id:number){
-      this.api.deleteDrug(id).subscribe((data:Drug)=>{
-      this.getDrug();
-      });
+      if(typeof localStorage !== 'undefined'){
+        this.api.deleteDrug(id).subscribe((data:Drug)=>{
+        this.getDrug();
+        });
+      }
     }
 
 
 
     user(){
-      if(typeof sessionStorage !=='undefined')
-      if(sessionStorage?.getItem('user')){
-        let userStore = sessionStorage.getItem('user');
+      if(typeof localStorage !=='undefined')
+      if(localStorage?.getItem('user')){
+        let userStore = localStorage.getItem('user');
         let userData = userStore && JSON.parse(userStore);
         if(userData.role==='Admin'){
           this.userType='Admin';
@@ -60,4 +62,6 @@ export class HomeComponent {
         this.userType='default';
       }
     }
+
+
 }

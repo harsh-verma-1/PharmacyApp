@@ -17,11 +17,15 @@ export class HeaderComponent {
   constructor(private router:Router,private sharedService:SharedService){}
 
   ngOnInit(){
+    this.login()
+  }
+
+  login(){
     this.router.events.subscribe((val:any)=>{
       if(val?.url){
-        if(typeof sessionStorage !== 'undefined')
-        if(sessionStorage?.getItem('user')){
-          let userStore = sessionStorage.getItem('user');
+        if(typeof localStorage !== 'undefined')
+        if(localStorage?.getItem('user')){
+          let userStore = localStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
           this.userName = userData.name;
           this.role=userData.role;
@@ -43,13 +47,12 @@ export class HeaderComponent {
       }
     })    
   }
-
   logout(){
-    sessionStorage.removeItem('cart');
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('cart');
+    localStorage.removeItem('user');
     this.menuType='default';
-    this.router.navigate(['/home',{menuType:'default'}]);
+    this.login();
+    this.router.navigate(['/login'])
   }
-
 
 }
